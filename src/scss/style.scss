@@ -43,11 +43,19 @@ table {
   border-spacing: 0;
 }
 
+body {
+  text-align: center;
+}
+
 h1 {
   font-size: 2em;
   font-family: Lucida Bright,Georgia,serif;
   width: 100%;
   text-align: center;
-  margin-top: 1em;
+  margin: 1em 0;
   font-weight: bold;
+}
+canvas {
+  margin: 0 auto;
+  border: 1px solid #3c3c3c;
 }
