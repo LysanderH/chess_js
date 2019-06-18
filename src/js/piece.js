@@ -14,22 +14,3 @@ export class Piece {
         this.game.renderSpriteFrame(this.coordinates);
     }
 }
-
-// export const piece_obj = {
-//     game: null,
-//     piece: [],
-//     init(game) {
-//         this.game = game;
-//         this.game.defaultPosition.forEach((el) => {
-//             this.piece.push(new Piece(game, el.coordinates, el.position));
-//         });
-//         this.piece.forEach((elt) => {
-//             elt.init(this);
-//         });
-//     },
-//     draw() {
-//         this.piece.forEach((elt) => {
-//             elt.draw();
-//         });
-//     }
-// }

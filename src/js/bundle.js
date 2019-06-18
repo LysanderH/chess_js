@@ -1,6 +1,5 @@
 import {chessboard} from './chessboard';
 import {Piece} from './piece';
-// import {piece_obj} from './piece';
 import {defaultPosition} from './defaultPositions';
 import {controller} from './controller';
 
@@ -15,7 +14,6 @@ const game = {
     piece: [],
     defaultPosition: defaultPosition,
     controller: controller,
-    // piece_obj: piece_obj,
 
     clickedPiece: [],
     deletedPieces: [],
@@ -84,13 +82,11 @@ const game = {
         if (this.defaultPosition[this.index] !== undefined) {
             this.clickedPiece.push(this.defaultPosition[this.index])
         }
-        // console.log(this.clickedPiece)
     },
     renewPiecePosition(mousePosition) {
         this.defaultPosition[this.index].position.col = Math.floor(mousePosition.y / (this.canvas.height / 8));
         this.defaultPosition[this.index].position.row = Math.floor(mousePosition.x / (this.canvas.height / 8));
         this.getTakenPieceIndex();
-        console.log(this.indexTaken)
         if (this.indexTaken >= 0) {
             this.defaultPosition.splice(this.indexTaken, 1);
         }
