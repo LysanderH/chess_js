@@ -24,8 +24,25 @@ const game = {
 
     init() {
         this.c = this.canvas.getContext('2d');
-        this.canvas.height = window.innerHeight / 2;
-        this.canvas.width = window.innerHeight / 2;
+        if (window.innerHeight < window.innerWidth) {
+            this.canvas.height = window.innerHeight / 1.2;
+            this.canvas.width = window.innerHeight / 1.2;
+        } else {
+            this.canvas.width = window.innerWidth / 1.2;
+            this.canvas.height = window.innerWidth / 1.2;
+        }
+        window.addEventListener('resize', () => {
+            if (window.innerHeight < window.innerWidth) {
+                this.canvas.height = window.innerHeight / 1.2;
+                this.canvas.width = window.innerHeight / 1.2;
+            } else {
+                this.canvas.width = window.innerWidth / 1.2;
+                this.canvas.height = window.innerWidth / 1.2;
+            }
+
+            this.initPieces();
+            this.chessboard.init(this);
+        })
 
         this.spriteImg.src = this.spriteUrl;
         this.spriteImg.addEventListener('load', () => {
@@ -74,7 +91,7 @@ const game = {
         this.defaultPosition[this.index].position.row = Math.floor(mousePosition.x / (this.canvas.height / 8));
         this.getTakenPieceIndex();
         console.log(this.indexTaken)
-        if (this.indexTaken >= 0){
+        if (this.indexTaken >= 0) {
             this.defaultPosition.splice(this.indexTaken, 1);
         }
         this.piece = [];

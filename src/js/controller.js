@@ -19,6 +19,21 @@ export const controller = {
 
 
         });
+        window.addEventListener('touch', (e) => {
+            const rect = this.game.canvas.getBoundingClientRect();
+            this.mousePos = {
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top
+            };
+
+            if (this.game.clickedPiece.length === 0){
+                this.game.getClickedPiece(this.mousePos);
+            } else {
+                this.game.renewPiecePosition(this.mousePos);
+            }
+
+
+        });
 
     },
 }
